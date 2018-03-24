@@ -22,22 +22,25 @@ def getPageSource(current_page):
 
 
 def find_data(source):
-	fieldnames = ['ID', 'Role', 'URL']
+	companies = []
+	fieldnames = ['ID', 'Role', 'URL', 'Company']
 		
 	with open('data.csv', 'w', encoding='utf8', newline='') as csvfile:
 		writer = csv.writer(csvfile)
 		writer.writerow(fieldnames)
 
+		for id, b in enumerate(source.find_all('div', class_= 'company'), start=1):
+			company_name = b.find('a').find('span').get_text()
+			companies.append(company_name)
+			
 		for id, a in enumerate(source.find_all('div', class_= 'jobTitle'), start=1):
 			pholder = a.find('h2').find('a')
+			print(id)
 			url = pholder['href']
 			role = pholder.get_text().strip()
-			writer.writerow([id, role, url])
-
-#date = source.find('div', class_= 'job-specs-date').find('p').get_text()
-# for company in div.find_all('div', class_= 'company'):
-# 		company_name = company.find('a').find('span').get_text()
-
+			writer.writerow([id, role, url, companies[id-1]])
+			
+		
 
 if __name__ == '__main__':
   
