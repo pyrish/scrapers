@@ -21,9 +21,10 @@ def make_soup(driver, url):
 
 	return(soup)
 
-def hubspot(driver):
+def scraper(driver):
 	
-	# Pull Jobs from Facebook
+# Pull Jobs from Hubspot
+
 	fieldnames = ['ID', 'Company', 'Role', 'Department', 'Location', 'URL']
 
 	with open('data_companies.csv', 'w', encoding='utf8', newline='') as csvfile:
@@ -46,8 +47,6 @@ def hubspot(driver):
 					roles_hubspot.append(role_hubspot)
 					writer.writerow([len(roles_hubspot), company, role_hubspot, department, location, url])
 
-################################################################################
-
 # Pull Jobs from Facebook
 	
 		page = make_soup(driver,'https://www.facebook.com/careers/locations/dublin/')
@@ -66,7 +65,6 @@ def hubspot(driver):
 						url = fb_base_url + link['href']
 						writer.writerow([len(roles_hubspot)+len(roles_fb), company, position, department, location, url])
 
-
 ################################################################################
 
 if __name__ == '__main__':
@@ -76,7 +74,6 @@ if __name__ == '__main__':
 	display = Display(visible=0, size=(1920, 1080)).start()
 	driver = webdriver.Firefox()
 
-	hubspot(driver)
-	#facebook(driver, ROLES)
+	scraper(driver)
 	
 	driver.close()
