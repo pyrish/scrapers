@@ -19,31 +19,37 @@ def getPageSource(current_page):
 
 def find_info(source):
 	
-	urls = []
-	keywords = ['Lead', 'LEAD', 'Manager', 'MANAGER']
+	fieldnames = ['ID', 'Role', 'URL']
+		
+	with open('data.csv', 'a', encoding='utf8', newline='') as csvfile:
+		writer = csv.writer(csvfile)
+		writer.writerow(fieldnames)
 	
-	for info in source.find_all("div",  {"class": ["row", "result", "clickcard"]}):
-		link = info.find('h2').find('a')
-		title = link.get_text()
-		for i in keywords:
-			if i in title:
-				urls.append(link['href'])
-				print('Title: ' + str(title.encode('UTF-8')))
-				print('http://www.indeed.com' + link['href'])
-	return(urls)
-										
+		urls = []
+		keywords = ['Lead', 'LEAD', 'Manager', 'MANAGER']
+
+		for id, info in enumerate(source.find_all("div",  {"class": ["row", "result", "clickcard"]}), start = 1):
+			link = info.find('h2').find('a')
+			title = link.get_text()
+			for i in keywords:
+				if i in title:
+					urls.append(link['href'])
+					page = 'http://www.indeed.com' + link['href']
+# 					print('Title: ' + str(title.encode('UTF-8')))
+# 					print('http://www.indeed.com' + link['href'])
+					writer.writerow([id, title, page])
 										
 
-def find_no_pages(url):
-  pagination = []
-  for table in url.find_all('td', {'id' : 'resultsCol'}):
-    pages = table.find('div', class_ = 'pagination')
-    for a in pages.find_all('a'):
-      span = a['href']
-      pagination.append(str(span))
-    pagination.pop()
-  return(pagination)
-  
+def find_no_pages(source):
+	pagination = []
+	for table in source.find_all('td', {'id' : 'resultsCol'}):
+		pages = table.find('div', class_ = 'pagination')
+		for a in pages.find_all('a'):
+			span = a['href']
+			pagination.append(str(span))
+		pagination.pop()
+	return(pagination)
+
 
 if __name__ == '__main__':
 	role = input('Enter role: ')

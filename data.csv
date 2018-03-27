@@ -1,101 +1,27 @@
-ID,Company,Role,URL,Date
-1,Solas Consulting Group,Java Developer - Front End Experience,https://www.irishjobs.ie/Jobs/Java-Developer-Front-End-Experience-8152339.aspx,26/03/2018
-2,Solas Consulting Group,UI Developer,https://www.irishjobs.ie/Jobs/UI-Developer-8152336.aspx,26/03/2018
-3,Codec,Senior Technical Business Analyst,https://www.irishjobs.ie/Jobs/Senior-Technical-Business-Analyst-8146580.aspx,19/03/2018
-4,Reperio Human Capital Ltd,IT Security Analyst - Vulnerability Specialist,https://www.irishjobs.ie/Jobs/IT-Security-Analyst-Vulnerability-Specialist-8146140.aspx,11/03/2018
-5,Recruiters – Looking For You,"Senior Product Manager- ambitious, high- growth software company in the heart of the city.",https://www.irishjobs.ie/Jobs/Senior-Product-Manager-ambitious-high-8152332.aspx,26/03/2018
-6,Archer Recruitment,Front End Developer- Architecture and Testing,https://www.irishjobs.ie/Jobs/Front-End-Developer-Architecture-and-8152284.aspx,26/03/2018
-7,IT Search,Product Owner,https://www.irishjobs.ie/Jobs/Product-Owner-8152268.aspx,26/03/2018
-8,Enterprise People – IT Recruitment Specialists,Software Tester - Contract,https://www.irishjobs.ie/Jobs/Software-Tester-Contract-8152241.aspx,26/03/2018
-9,Enterprise People – IT Recruitment Specialists,Java Developer (Financial),https://www.irishjobs.ie/Jobs/Java-Developer-Financial-8152238.aspx,26/03/2018
-10,Recruit First IT,Test Lead Dublin City Centre,https://www.irishjobs.ie/Jobs/Test-Lead-Dublin-City-Centre-8152220.aspx,26/03/2018
-11,Kerry,SAP Solution Manager (CC & Billing),https://www.irishjobs.ie/Jobs/SAP-Solution-Manager-CC-Billing-8143172.aspx,19/03/2018
-12,Computer Futures,Data QA Analyst,https://www.irishjobs.ie/Jobs/Data-QA-Analyst-8152192.aspx,25/03/2018
-13,Finance Ireland Limited,Junior System Analyst/Administrator,https://www.irishjobs.ie/Jobs/Junior-System-Analyst-Administrator-8140529.aspx,25/03/2018
-14,IBM Watson Health,Senior Visual Designer,https://www.irishjobs.ie/Jobs/Senior-Visual-Designer-8151832.aspx,25/03/2018
-15,Global Payments,Settlement and Reporting Analyst,https://www.irishjobs.ie/Jobs/Settlement-and-Reporting-Analyst-8150026.aspx,25/03/2018
-16,Corvil,Senior C++ Engineer,https://www.irishjobs.ie/Jobs/Senior-C-Engineer-8148491.aspx,25/03/2018
-17,Aviva,Software Tester,https://www.irishjobs.ie/Jobs/Software-Tester-8149761.aspx,25/03/2018
-18,Reperio Human Capital Ltd,RAN Engineer (Telco) - Contract - Dublin,https://www.irishjobs.ie/Jobs/RAN-Engineer-Telco-Contract-Dublin-8145987.aspx,24/03/2018
-19,Eolas - Specialists in IT,Graphic Designer,https://www.irishjobs.ie/Jobs/Graphic-Designer-8145880.aspx,24/03/2018
-20,Solas Consulting Group,Mid Level .Net Developer,https://www.irishjobs.ie/Jobs/Mid-Level-Net-Developer-8145793.aspx,24/03/2018
-21,Solas Consulting Group,Senior .Net Developer - Dublin 18,https://www.irishjobs.ie/Jobs/Senior-Net-Developer-Dublin-18-8145820.aspx,24/03/2018
-22,Reperio Human Capital Ltd,Senior Full-Stack Developer,https://www.irishjobs.ie/Jobs/Senior-Full-Stack-Developer-8145989.aspx,24/03/2018
-23,Solas Consulting Group,Principal .Net Engineer,https://www.irishjobs.ie/Jobs/Principal-Net-Engineer-8145818.aspx,24/03/2018
-24,Saongroup.com,Lead Business Analyst,https://www.irishjobs.ie/Jobs/Lead-Business-Analyst-8145506.aspx,24/03/2018
-25,Globoforce,Senior QA Automation Engineer,https://www.irishjobs.ie/Jobs/Senior-QA-Automation-Engineer-8149253.aspx,24/03/2018
-26,Stelfox,Senior Full Stack Engineer (Python or Node) Contract - Dublin City Centre,https://www.irishjobs.ie/Jobs/Senior-Full-Stack-Engineer-Python-8145511.aspx,24/03/2018
-27,Rutledge Recruitment & Training,JAVA DEVELOPER - DUBLIN,https://www.irishjobs.ie/Jobs/JAVA-DEVELOPER-DUBLIN-8145874.aspx,24/03/2018
-28,Archer Recruitment,Business Analyst,https://www.irishjobs.ie/Jobs/Business-Analyst-8145944.aspx,24/03/2018
-29,AIG,Data Quality Analyst,https://www.irishjobs.ie/Jobs/Data-Quality-Analyst-8147508.aspx?hl=29|application_confirmed,24/03/2018
-30,PFH Talent Acquisition & Recruitment,Senior Helpdesk Support Technician (French Speaking),https://www.irishjobs.ie/Jobs/Senior-Helpdesk-Support-Technician-French-8145743.aspx,24/03/2018
-31,Irish Recruitment Consultants,Scrum Master - Agile,https://www.irishjobs.ie/Jobs/Scrum-Master-Agile-8146000.aspx,24/03/2018
-32,Eolas - Specialists in IT,Xamarin Developer Contract role,https://www.irishjobs.ie/Jobs/Xamarin-Developer-Contract-role-8145943.aspx,24/03/2018
-33,IT Alliance Group,LogRhythm Security Analyst,https://www.irishjobs.ie/Jobs/LogRhythm-Security-Analyst-8145644.aspx,24/03/2018
-34,Jet.com part of the Walmart Group,"Senior Back End Engineer, Inventory System",https://www.irishjobs.ie/Jobs/Senior-Back-End-Engineer-Inventory-8147706.aspx?hl=34|application_confirmed,24/03/2018
-35,Globoforce,Technical  Team Lead (Java),https://www.irishjobs.ie/Jobs/Technical-Team-Lead-Java-8149252.aspx,24/03/2018
-36,Jet.com part of the Walmart Group,"Technical Lead, Mobile",https://www.irishjobs.ie/Jobs/Technical-Lead-Mobile-8147708.aspx?hl=36|application_confirmed,24/03/2018
-37,Globoforce,Performance Test Engineer,https://www.irishjobs.ie/Jobs/Performance-Test-Engineer-8149251.aspx,24/03/2018
-38,JP Morgan,Software Engineer,https://www.irishjobs.ie/Jobs/Software-Engineer-8145909.aspx,24/03/2018
-39,PFH Talent Acquisition & Recruitment,Software QA Engineer,https://www.irishjobs.ie/Jobs/Software-QA-Engineer-8145761.aspx,24/03/2018
-40,The Panel,Senior Business Analyst/Solution Architect,https://www.irishjobs.ie/Jobs/Senior-Business-Analyst-Solution-Architect-8145573.aspx,24/03/2018
-41,Rutledge Recruitment & Training,QA Automation Engineer - Dublin,https://www.irishjobs.ie/Jobs/QA-Automation-Engineer-Dublin-8145689.aspx,24/03/2018
-42,Globoforce,Senior Front End Developer,https://www.irishjobs.ie/Jobs/Senior-Front-End-Developer-8149249.aspx,24/03/2018
-43,Reperio Human Capital Ltd,Senior Front End Developer,https://www.irishjobs.ie/Jobs/Senior-Front-End-Developer-8145978.aspx,24/03/2018
-44,Synchronoss Technologies,Lead iOS Swift  Developer Enterprise Agile,https://www.irishjobs.ie/Jobs/Lead-iOS-Swift-Developer-Enterprise-8149248.aspx,24/03/2018
-45,Reperio Human Capital Ltd,Senior Systems Engineer - Linux/AWS,https://www.irishjobs.ie/Jobs/Senior-Systems-Engineer-Linux-AWS-8145962.aspx,24/03/2018
-46,Deloitte,Salesforce Consultant,https://www.irishjobs.ie/Jobs/Salesforce-Consultant-8142551.aspx,24/03/2018
-47,Recruit First IT,Automation Test Lead,https://www.irishjobs.ie/Jobs/Automation-Test-Lead-8145934.aspx,24/03/2018
-48,Eolas - Specialists in IT,IT Audit & Compliance Manager,https://www.irishjobs.ie/Jobs/IT-Audit-Compliance-Manager-8145860.aspx,24/03/2018
-49,IT Alliance Group,Test Manager,https://www.irishjobs.ie/Jobs/Test-Manager-8145362.aspx,23/03/2018
-50,SQS Ireland,QA Manager,https://www.irishjobs.ie/Jobs/QA-Manager-8148773.aspx,23/03/2018
-51,Deloitte,Functional Tester - 1-2 Years' Experience,https://www.irishjobs.ie/Jobs/Functional-Tester-1-2-Years-8149184.aspx,23/03/2018
-52,Version 1,Senior Oracle DBA,https://www.irishjobs.ie/Jobs/Senior-Oracle-DBA-8149131.aspx,23/03/2018
-53,Reperio Human Capital Ltd,Test Automation Engineer,https://www.irishjobs.ie/Jobs/Test-Automation-Engineer-8152086.aspx,23/03/2018
-54,Archer Recruitment,Front End Angular Developer - Contract,https://www.irishjobs.ie/Jobs/Front-End-Angular-Developer-Contract-8152053.aspx,23/03/2018
-55,SQS Ireland,Business Analyst,https://www.irishjobs.ie/Jobs/Business-Analyst-8148760.aspx,23/03/2018
-56,IT Alliance Group,Level 1-2 Service Desk - Permanent,https://www.irishjobs.ie/Jobs/Level-1-2-Service-Desk-8152024.aspx,23/03/2018
-57,Prosperity Recruitment,UI Designer,https://www.irishjobs.ie/Jobs/UI-Designer-8152020.aspx,23/03/2018
-58,Webrecruit Ireland,Network Engineer – Network Development Team,https://www.irishjobs.ie/Jobs/Network-Engineer-Network-Development-Team-8152017.aspx,23/03/2018
-59,Recruit First IT,Angular Developer Dublin City Centre,https://www.irishjobs.ie/Jobs/Angular-Developer-Dublin-City-Centre-8151983.aspx,23/03/2018
-60,IT Search,QA Tester,https://www.irishjobs.ie/Jobs/QA-Tester-8151973.aspx,23/03/2018
-61,IT Search,Application Security Engineer,https://www.irishjobs.ie/Jobs/Application-Security-Engineer-8151972.aspx,23/03/2018
-62,Glanbia,Senior P2P Business Analyst - Ariba,https://www.irishjobs.ie/Jobs/Senior-P2P-Business-Analyst-Ariba-8148699.aspx,23/03/2018
-63,Eolas - Specialists in IT,Java Developer (Permanent),https://www.irishjobs.ie/Jobs/Java-Developer-Permanent-8145072.aspx,23/03/2018
-64,Eolas - Specialists in IT,Contract Project Manager (Business),https://www.irishjobs.ie/Jobs/Contract-Project-Manager-Business-8151896.aspx,23/03/2018
-65,Version 1,Biztalk Consultant - Perm /Contract,https://www.irishjobs.ie/Jobs/Biztalk-Consultant-Perm-Contract-8143750.aspx?hl=65|application_confirmed,23/03/2018
-66,Version 1,Business Analyst - Banking,https://www.irishjobs.ie/Jobs/Business-Analyst-Banking-8142632.aspx,23/03/2018
-67,Osborne,2x Presales Cyber Security Consultant – Dublin/ London - €70k - €80k + OTE,https://www.irishjobs.ie/Jobs/2x-Presales-Cyber-Security-Consultant-8144911.aspx,23/03/2018
-68,ViaSat,Data Transformation Software Engineer,https://www.irishjobs.ie/Jobs/Data-Transformation-Software-Engineer-8148644.aspx,23/03/2018
-69,Reperio Human Capital Ltd,QA Engineer,https://www.irishjobs.ie/Jobs/QA-Engineer-8145368.aspx,23/03/2018
-70,IBM Watson Health,Performance Specialist,https://www.irishjobs.ie/Jobs/Performance-Specialist-8151820.aspx,23/03/2018
-71,IBM Watson Health,Senior Graphic Designer,https://www.irishjobs.ie/Jobs/Senior-Graphic-Designer-8151817.aspx,23/03/2018
-72,Codec,ERP Support Consultant,https://www.irishjobs.ie/Jobs/ERP-Support-Consultant-8151810.aspx,23/03/2018
-73,Abrivia Recruitment Specialists,QA Test Analyst,https://www.irishjobs.ie/Jobs/QA-Test-Analyst-8151808.aspx,23/03/2018
-74,Fidelity International,Technical Consultant - Security Engineering,https://www.irishjobs.ie/Jobs/Technical-Consultant-Security-Engineering-8149207.aspx,23/03/2018
-75,Reperio Human Capital Ltd,Senior Software Engineer,https://www.irishjobs.ie/Jobs/Senior-Software-Engineer-8145386.aspx,23/03/2018
-76,PERMANENT TSB,IT Security Governance Manager,https://www.irishjobs.ie/Jobs/IT-Security-Governance-Manager-8146812.aspx,23/03/2018
-77,First Data,Project Manager,https://www.irishjobs.ie/Jobs/Project-Manager-8145852.aspx,23/03/2018
-78,JP Morgan,Application Developer - Associate,https://www.irishjobs.ie/Jobs/Application-Developer-Associate-8145921.aspx,23/03/2018
-79,St. Patrick’s Mental Health Services,ICT Business Intelligence Analyst,https://www.irishjobs.ie/Jobs/ICT-Business-Intelligence-Analyst-8151777.aspx,23/03/2018
-80,Citco Group,Senior Reliability Engineer  Team Leader,https://www.irishjobs.ie/Jobs/Senior-Reliability-Engineer-Team-Leader-8151765.aspx,23/03/2018
-81,Lex Consultancy,AV Cooridinator,https://www.irishjobs.ie/Jobs/AV-Cooridinator-8151745.aspx,23/03/2018
-82,First Data,Sr Application Developer (Oracle/Java),https://www.irishjobs.ie/Jobs/Sr-Application-Developer-Oracle-Java-8145850.aspx,23/03/2018
-83,Version 1,Business Analyst - Digital,https://www.irishjobs.ie/Jobs/Business-Analyst-Digital-8142628.aspx,23/03/2018
-84,First Data,Test Analyst,https://www.irishjobs.ie/Jobs/Test-Analyst-8145853.aspx,23/03/2018
-85,Ding,Product Manager - Web,https://www.irishjobs.ie/Jobs/Product-Manager-Web-8142670.aspx,23/03/2018
-86,Reperio Human Capital Ltd,Senior Frontend Engineer,https://www.irishjobs.ie/Jobs/Senior-Frontend-Engineer-8145382.aspx,23/03/2018
-87,Citco Group,Oracle BI Developer,https://www.irishjobs.ie/Jobs/Oracle-BI-Developer-8151737.aspx,23/03/2018
-88,Eolas - Specialists in IT,C# Developer Mid-level,https://www.irishjobs.ie/Jobs/CSharp-Developer-Mid-level-8151711.aspx,23/03/2018
-89,Aryzta,"SAP Business Analyst, OTC and LE",https://www.irishjobs.ie/Jobs/SAP-Business-Analyst-OTC-and-8151698.aspx,23/03/2018
-90,Archer Recruitment,Test Manager Contract Role w/ Fund Management Firm,https://www.irishjobs.ie/Jobs/Test-Manager-Contract-Role-w-8151693.aspx,23/03/2018
-91,AON Ireland,Senior UI/UX Designer,https://www.irishjobs.ie/Jobs/Senior-UI-UX-Designer-8146259.aspx,23/03/2018
-92,New Ireland Assurance,IT Tester,https://www.irishjobs.ie/Jobs/IT-Tester-8151672.aspx,23/03/2018
-93,Corvil,Principal C++ Engineer,https://www.irishjobs.ie/Jobs/Principal-C-Engineer-8151663.aspx,23/03/2018
-94,Corvil,Snr Virtualization Engineer (C++),https://www.irishjobs.ie/Jobs/Snr-Virtualization-Engineer-C-8151653.aspx,23/03/2018
-95,New Ireland Assurance,IT Risk Analyst,https://www.irishjobs.ie/Jobs/IT-Risk-Analyst-8151639.aspx,23/03/2018
-96,PM Group,Application Systems Analyst - Dublin,https://www.irishjobs.ie/Jobs/Application-Systems-Analyst-Dublin-8148605.aspx,23/03/2018
-97,IT Alliance Group,Business/Systems Analyst,https://www.irishjobs.ie/Jobs/Business-Systems-Analyst-8144937.aspx,23/03/2018
-98,Prosperity Recruitment,UX Designer,https://www.irishjobs.ie/Jobs/UX-Designer-8145183.aspx,23/03/2018
-99,Citco Group,Oracle Business Intelligence Developer,https://www.irishjobs.ie/Jobs/Oracle-Business-Intelligence-Developer-8144780.aspx?hl=99|application_confirmed,23/03/2018
-100,Dylan Hannah Recruitment Partners,IT Audit Manager - SOC Specialist,https://www.irishjobs.ie/Jobs/IT-Audit-Manager-SOC-Specialist-8151605.aspx,23/03/2018
+ID,Role,URL
+5,"Director Design and Development: RD00M3 - Senior Manager, De...",http://www.indeed.com/rc/clk?jk=5a91cfdd233e5463&fccid=ec90dcdc88059f53&vjs=3
+9,GROUP CHANGE UAT TEST LEAD,http://www.indeed.com/rc/clk?jk=5fe8a55f3e93105c&fccid=dd616958bd9ddc12&vjs=3
+11,"Test Manager, Banking",http://www.indeed.com/rc/clk?jk=58221375cbce53a7&fccid=062f71e131e87cf0&vjs=3
+22,GHI Services Support Manager,http://www.indeed.com/rc/clk?jk=44d8e8668baff0ea&fccid=734cb5a01ee60f80&vjs=3
+26,Contract Project Manager (Business),http://www.indeed.com/rc/clk?jk=7526490c7ac67494&fccid=84dd258955114da3&vjs=3
+30,Project Manager,http://www.indeed.com/rc/clk?jk=5111659508de0f75&fccid=57f862d6ef8a50ff&vjs=3
+43,Software Engineering Manager,http://www.indeed.com/rc/clk?jk=3dce33aec2ebf3b8&fccid=dbc4f755c66b414b&vjs=3
+ID,Role,URL
+13,Product Manager,http://www.indeed.com/rc/clk?jk=5609dfb80aaa2c8d&fccid=6f9ac7cf38e2c8c0&vjs=3
+20,M&E Coordinator/Manager,http://www.indeed.com/rc/clk?jk=4323290370c54268&fccid=1009ae30bb0e8382&vjs=3
+28,Frontend Lead Software Engineer - Angular 4/ 5 -Messaging Pl...,http://www.indeed.com/company/Synchronoss/jobs/Frontend-Lead-Software-Engineer-70abf85280a9f4e6?fccid=18aa0b6d7b971962&vjs=3
+38,.NET Support Technical Lead,http://www.indeed.com/rc/clk?jk=2925b4c336859bf9&fccid=8ad0ba7074a5e6ea&vjs=3
+46,Test Program Manager – Electronic Channels Applications,http://www.indeed.com/rc/clk?jk=63ed861dd2cdef7d&fccid=5bcd1ef0a7f4fb99&vjs=3
+ID,Role,URL
+3,Team Leader - Aircraft Appearance and Aircraft Security,http://www.indeed.com/rc/clk?jk=ef2967201860e166&fccid=b5098f82d612aaef&vjs=3
+5,Assistant Manager International Payments/Treasury,http://www.indeed.com/rc/clk?jk=3af17d6092044463&fccid=58a0b6e7b7d51d7e&vjs=3
+7,Java Development Lead - VP,http://www.indeed.com/rc/clk?jk=c0e86e9c37ec55e8&fccid=5bcd1ef0a7f4fb99&vjs=3
+8,"IT Audit Manager, Assistant Vice President",http://www.indeed.com/rc/clk?jk=885d29acec4c8a30&fccid=92f1ccd9154b0139&vjs=3
+10,IT Audit Manager – SOC Specialist,http://www.indeed.com/rc/clk?jk=d024f56419c39e04&fccid=cf80abde47d3bd81&vjs=3
+14,Site Reliability Engineer (SRE) – Team Lead,http://www.indeed.com/rc/clk?jk=3e8a53881dd0e82e&fccid=58a0b6e7b7d51d7e&vjs=3
+42,QA Team Lead,http://www.indeed.com/rc/clk?jk=5bbf6436de9997c2&fccid=84dd258955114da3&vjs=3
+ID,Role,URL
+2,Full Stack Developer Lead,http://www.indeed.com/rc/clk?jk=175a89a2064e20e4&fccid=84dd258955114da3&vjs=3
+6,Associate Project Manager,http://www.indeed.com/rc/clk?jk=e64fe2423d48dcbe&fccid=31670bef3ae6497b&vjs=3
+14,QA Lead - Dublin 2,http://www.indeed.com/rc/clk?jk=fb35c18b452d532b&fccid=f85025e3269b61bf&vjs=3
+15,Telecommunications Test Lead Engineer - Dublin,http://www.indeed.com/rc/clk?jk=4c0866e53b0c1f4e&fccid=79d95b1544240a36&vjs=3
