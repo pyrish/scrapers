@@ -17,23 +17,22 @@ def getPageSource(current_page):
 	return(soup)
 
 
-def indeed_jobs(source):
-  
-    keywords = ['Lead', 'LEAD', 'Manager', 'MANAGER']
-
-    table = source.find_all("a", class_="turnstileLink")
-    search_count = source.find("div",id = "searchCount")
-    #Me muestra el texto de la cantidad de resultados de la busqueda i.e Jobs 51 to 100 of 154
-    parse_count = str(search_count.text)
-    spli = parse_count.split()
-    spli_count = (str(spli[5]))
-
-    for link in table:
-        if '/rc/' in link['href']:
-            for i in keywords:
-                if i in link.get('title'):
-                    print((link.get('title') + ': https://ie.indeed.com' + link['href']).encode('utf-8'))
-
+def find_info(source):
+	
+	urls = []
+	keywords = ['Lead', 'LEAD', 'Manager', 'MANAGER']
+	
+	for info in source.find_all("div",  {"class": ["row", "result", "clickcard"]}):
+		link = info.find('h2').find('a')
+		title = link.get_text()
+		for i in keywords:
+			if i in title:
+				urls.append(link['href'])
+				print('Title: ' + str(title.encode('UTF-8')))
+				print('http://www.indeed.com' + link['href'])
+	return(urls)
+										
+										
 
 def find_no_pages(url):
   pagination = []
@@ -47,10 +46,10 @@ def find_no_pages(url):
   
 
 if __name__ == '__main__':
-
-    url = getPageSource('https://ie.indeed.com/jobs?as_and=Test&radius=25&l=Dublin&fromage=7&limit=50&sort=date')
-    no_pages = find_no_pages(url)
+	role = input('Enter role: ')
+	url = getPageSource('https://ie.indeed.com/jobs?as_and=' + role + '&radius=25&l=Dublin&fromage=7&limit=50&sort=date')
+	no_pages = find_no_pages(url)
     
-    for i in no_pages:
-      source = getPageSource('https://ie.indeed.com' + i)
-      indeed_jobs(source)
+	for i in no_pages:
+		source = getPageSource('https://ie.indeed.com' + i)
+		find_info(source)
