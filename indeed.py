@@ -52,6 +52,11 @@ def find_no_pages(source):
 
 
 if __name__ == '__main__':
+	
+	f = open("data.csv", "w")
+	f.truncate()
+	f.close()
+	
 	role = input('Enter role: ')
 	url = getPageSource('https://ie.indeed.com/jobs?as_and=' + role + '&radius=25&l=Dublin&fromage=7&limit=50&sort=date')
 	no_pages = find_no_pages(url)
