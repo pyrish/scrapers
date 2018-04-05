@@ -17,6 +17,7 @@ def getPageSource(current_page):
 	driver = webdriver.Firefox()
 	driver.get(current_page)
 	url_code = driver.page_source
+	driver.close()
 	soup = BeautifulSoup(url_code, "html5lib")
 	return(soup)
 			
