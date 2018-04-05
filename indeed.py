@@ -23,7 +23,9 @@ def find_info(source):
 		
 	with open('data.csv', 'a', encoding='utf8', newline='') as csvfile:
 		writer = csv.writer(csvfile)
-		writer.writerow(fieldnames)
+
+		if csvfile.tell() == 0:
+			writer.writerow(fieldnames)
 	
 		urls = []
 		keywords = ['Lead', 'LEAD', 'Manager', 'MANAGER']

@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 
 import os.path
+import sys
+import operator
 import csv
 import math
 from bs4 import BeautifulSoup
@@ -50,7 +52,7 @@ def find_data(soup):
 			date = b.find('ul', class_= 'jobDetails').find('li', class_= 'jobLiveDate').get_text()
 			date = date.split(':')[1].strip()
 			writer.writerow([id, company_name, title, company_url, date])
-
+			#sortedlist = sorted(csvfile, key=operator.itemgetter(4), reverse=True)
 
 if __name__ == '__main__':
   

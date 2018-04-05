@@ -38,7 +38,9 @@ def find_data(soup):
 		
 	with open('data.csv', 'a', encoding='utf8', newline='') as csvfile:
 		writer = csv.writer(csvfile)
-		writer.writerow(fieldnames)
+
+		if csvfile.tell() == 0:
+			writer.writerow(fieldnames)
 
 		for id, b in enumerate(soup.find_all('div', class_= 'company'), start=1):
 			company_name = b.find('a').find('span').get_text()

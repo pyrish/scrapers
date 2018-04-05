@@ -21,21 +21,23 @@ def getPageSource(current_page):
 			
 	
 def find_data(source):
-    base_url = 'https://www.irishjobs.ie'
-    fieldnames = ['ID', 'Company','Role', 'URL', 'Date']
+	base_url = 'https://www.irishjobs.ie'
+	fieldnames = ['ID', 'Company','Role', 'URL', 'Date']
+		
+	with open('data.csv', 'a', encoding='utf8', newline='') as csvfile:
+		writer = csv.writer(csvfile)
 
-    with open('data.csv', 'w', encoding='utf8', newline='') as csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerow(fieldnames)
+		if csvfile.tell() == 0:
+			writer.writerow(fieldnames)
 
-        for id, a in enumerate(source.find_all(attrs={"itemtype" : "https://schema.org/JobPosting"}), start=1):
-            job_info = a.find('h2').find('a')
-            company_name = a.find('h3').find('a').get_text()
-            url = job_info['href']
-            full_url = (base_url + url)
-            role = (job_info.get_text())
-            date = a.find('li',class_='updated-time').get_text().replace('Updated','').strip()
-            writer.writerow([id, company_name, role, full_url, date])
+		for id, a in enumerate(source.find_all(attrs={"itemtype" : "https://schema.org/JobPosting"}), start=1):
+			job_info = a.find('h2').find('a')
+			company_name = a.find('h3').find('a').get_text()
+			url = job_info['href']
+			full_url = (base_url + url)
+			role = (job_info.get_text())
+			date = a.find('li',class_='updated-time').get_text().replace('Updated','').strip()
+			writer.writerow([id, company_name, role, full_url, date])
 
 		
 if __name__ == '__main__':
