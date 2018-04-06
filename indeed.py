@@ -1,4 +1,5 @@
 import csv
+import math
 from bs4 import BeautifulSoup
 import urllib.request
 
@@ -28,29 +29,27 @@ def find_info(source):
 			writer.writerow(fieldnames)
 	
 		urls = []
-		keywords = ['Lead', 'LEAD', 'Manager', 'MANAGER']
+		keywords = ['Lead', 'Manager', 'Test', 'QA']
 
 		for id, info in enumerate(source.find_all("div",  {"class": ["row", "result", "clickcard"]}), start = 1):
-			link = info.find('h2').find('a')
-			title = link.get_text()
+			link = info.find('h2', class_= 'jobtitle').find('a')
+			title = link['title']
 			for i in keywords:
 				if i in title:
-					urls.append(link['href'])
 					page = 'http://www.indeed.com' + link['href']
-# 					print('Title: ' + str(title.encode('UTF-8')))
-# 					print('http://www.indeed.com' + link['href'])
-					writer.writerow([id, title, page])
-										
+					if page not in urls:
+						urls.append(page)
+						writer.writerow([id, title, page])
+						break
 
+					
 def find_no_pages(source):
-	pagination = []
 	for table in source.find_all('td', {'id' : 'resultsCol'}):
-		pages = table.find('div', class_ = 'pagination')
-		for a in pages.find_all('a'):
-			span = a['href']
-			pagination.append(str(span))
-		pagination.pop()
-	return(pagination)
+		pages = table.find('div', class_ = 'resultsTop').find('div', attrs={'id':'searchCount'}).get_text()
+		number = pages[-3:]
+		no_pages = int(number) / 50
+		page_no = math.ceil(no_pages)
+	return(page_no)
 
 
 if __name__ == '__main__':
@@ -63,6 +62,6 @@ if __name__ == '__main__':
 	url = getPageSource('https://ie.indeed.com/jobs?as_and=' + role + '&radius=25&l=Dublin&fromage=7&limit=50&sort=date')
 	no_pages = find_no_pages(url)
     
-	for i in no_pages:
-		source = getPageSource('https://ie.indeed.com' + i)
+	for i in range(no_pages):
+		source = getPageSource('https://ie.indeed.com/jobs?as_and=' + role + '&radius=25&l=Dublin&fromage=7&limit=50&sort=date&start=' + str(i*50))
 		find_info(source)
