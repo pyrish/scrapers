@@ -36,7 +36,7 @@ def find_data(soup):
 	dates = []
 	fieldnames = ['ID', 'Company', 'Role', 'URL', 'Date']
 		
-	with open('data.csv', 'a', encoding='utf8', newline='') as csvfile:
+	with open('csv_files/data.csv', 'a', encoding='utf8', newline='') as csvfile:
 		writer = csv.writer(csvfile)
 
 		if csvfile.tell() == 0:
@@ -62,7 +62,7 @@ if __name__ == '__main__':
   
 	display = Display(visible=0, size=(1920, 1080)).start()
 	
-	f = open("data.csv", "w")
+	f = open("csv_files/data.csv", "w")
 	f.truncate()
 	f.close()
 	

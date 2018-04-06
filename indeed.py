@@ -22,7 +22,7 @@ def find_info(source):
 	
 	fieldnames = ['ID', 'Role', 'URL']
 		
-	with open('data.csv', 'a', encoding='utf8', newline='') as csvfile:
+	with open('csv_files/data.csv', 'a', encoding='utf8', newline='') as csvfile:
 		writer = csv.writer(csvfile)
 
 		if csvfile.tell() == 0:
@@ -54,7 +54,7 @@ def find_no_pages(source):
 
 if __name__ == '__main__':
 	
-	f = open("data.csv", "w")
+	f = open("csv_files/data.csv", "w")
 	f.truncate()
 	f.close()
 	

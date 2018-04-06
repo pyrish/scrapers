@@ -28,7 +28,7 @@ def hubspot(driver):
 
 	fieldnames = ['ID', 'Company', 'Role', 'Department', 'Location', 'URL']
 
-	with open('data_companies.csv', 'a', encoding='utf8', newline='') as csvfile:
+	with open('csv_files/data_companies.csv', 'a', encoding='utf8', newline='') as csvfile:
 		writer = csv.writer(csvfile)
 
 		if csvfile.tell() == 0:
@@ -56,7 +56,7 @@ def facebook(driver):
 		
 		fieldnames = ['ID', 'Company', 'Role', 'Department', 'Location', 'URL']
 
-		with open('data_companies.csv', 'a', encoding='utf8', newline='') as csvfile:
+		with open('csv_files/data_companies.csv', 'a', encoding='utf8', newline='') as csvfile:
 			writer = csv.writer(csvfile)
 
 			if csvfile.tell() == 0:

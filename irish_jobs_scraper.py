@@ -24,7 +24,7 @@ def find_data(source):
 	base_url = 'https://www.irishjobs.ie'
 	fieldnames = ['ID', 'Company','Role', 'URL', 'Date']
 		
-	with open('data.csv', 'a', encoding='utf8', newline='') as csvfile:
+	with open('csv_files/data.csv', 'a', encoding='utf8', newline='') as csvfile:
 		writer = csv.writer(csvfile)
 
 		if csvfile.tell() == 0:
@@ -41,6 +41,10 @@ def find_data(source):
 
 		
 if __name__ == '__main__':
+	
+	f = open("csv_files/data.csv", "w")
+	f.truncate()
+	f.close()
   
 	query = input('Enter role to search: ')
 	source = getPageSource('https://www.irishjobs.ie/ShowResults.aspx?Keywords='+query+'&Location=102&Category=3&Recruiter=All&SortBy=MostRecent&PerPage=100')
