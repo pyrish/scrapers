@@ -1,4 +1,6 @@
 import csv
+import pandas as pd
+from operator import itemgetter
 import math
 from bs4 import BeautifulSoup
 import urllib.request
@@ -19,39 +21,36 @@ def getPageSource(current_page):
 
 
 def find_info(source):
+	l = []
+	urls = []
+	keywords = ['Lead', 'Manager', 'Test', 'QA']
+
+	for info in source.find_all("td",  {"id": "resultsCol"}):
+			for div in info.find_all('div', {"class": ["row", "result", "clickcard"]}):
+				d = {}
+				link = div.find('h2', class_= 'jobtitle').find('a')
+				role = link.get_text()
+				for i in keywords:
+						if i in role:
+								try:
+									d["1.Company"] = div.find('span', class_= 'company').get_text().strip()
+								except:
+									pass
+								d["2.Role"] = link.get_text()
+								d["3.Page"] = 'http://www.indeed.com' + link['href']
+								try:
+									d["4.Date"] = div.find('span', class_= 'date').get_text().strip()
+								except:
+									pass
+								if d["3.Page"] not in urls:
+										urls.append(d["3.Page"])
+										break
+				l.append(d)
+			df = pd.DataFrame(l)
+			df=df.dropna()
+			df.to_csv("csv_files/pandas_data.csv")
+
 	
-	fieldnames = ['ID', 'Role', 'URL']
-		
-	with open('csv_files/data.csv', 'a', encoding='utf8', newline='') as csvfile:
-		writer = csv.writer(csvfile)
-
-		if csvfile.tell() == 0:
-			writer.writerow(fieldnames)
-	
-		urls = []
-		keywords = ['Lead', 'Manager', 'Test', 'QA']
-
-		for info in source.find_all("td",  {"id": "resultsCol"}):
-				for id, div in enumerate(info.find_all('div', {"class": ["row", "result", "clickcard"]}), start = 1):
-						link = div.find('h2', class_= 'jobtitle').find('a')
-						role = link.get_text()
-						try:
-								company = div.find('span', class_= 'company').get_text().strip()
-						except:
-								pass
-						try:
-								date = div.find('span', class_= 'date').get_text().strip()
-						except:
-								pass
-						for i in keywords:
-								if i in role:
-										page = 'http://www.indeed.com' + link['href']
-										if page not in urls:
-												urls.append(page)
-												writer.writerow([id, company, role, page, date])
-												break
-
-					
 def find_no_pages(source):
 	for table in source.find_all('td', {'id' : 'resultsCol'}):
 		pages = table.find('div', class_ = 'resultsTop').find('div', attrs={'id':'searchCount'}).get_text()
@@ -62,10 +61,6 @@ def find_no_pages(source):
 
 
 if __name__ == '__main__':
-	
-	f = open("csv_files/data.csv", "w")
-	f.truncate()
-	f.close()
 	
 	role = input('Enter role: ')
 	url = getPageSource('https://ie.indeed.com/jobs?as_and=' + role + '&radius=25&l=Dublin&fromage=7&limit=50&sort=date')
