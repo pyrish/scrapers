@@ -1,6 +1,5 @@
 import csv
 import pandas as pd
-from operator import itemgetter
 import math
 from bs4 import BeautifulSoup
 import urllib.request
@@ -33,21 +32,23 @@ def find_info(source):
 				for i in keywords:
 						if i in role:
 								try:
-									d["1.Company"] = div.find('span', class_= 'company').get_text().strip()
+									d["Company"] = div.find('span', class_= 'company').get_text().strip()
 								except:
 									pass
-								d["2.Role"] = link.get_text()
-								d["3.Page"] = 'http://www.indeed.com' + link['href']
+								d["Role"] = role
+								d["URL"] = 'http://www.indeed.com' + link['href']
 								try:
-									d["4.Date"] = div.find('span', class_= 'date').get_text().strip()
+									d["Date"] = div.find('span', class_= 'date').get_text().strip()
 								except:
 									pass
-								if d["3.Page"] not in urls:
-										urls.append(d["3.Page"])
+								if d["URL"] not in urls:
+										urls.append(d["URL"])
 										break
 				l.append(d)
 			df = pd.DataFrame(l)
+			df = df[['Date', 'Company', 'Role', 'URL']]
 			df=df.dropna()
+			df.sort_values(by=['Date'], inplace=True, ascending=True)
 			df.to_csv("csv_files/pandas_data.csv")
 
 	
@@ -66,6 +67,6 @@ if __name__ == '__main__':
 	url = getPageSource('https://ie.indeed.com/jobs?as_and=' + role + '&radius=25&l=Dublin&fromage=7&limit=50&sort=date')
 	no_pages = find_no_pages(url)
     
-	for i in range(no_pages):
+	for i in range(no_pages+1):
 		source = getPageSource('https://ie.indeed.com/jobs?as_and=' + role + '&radius=25&l=Dublin&fromage=7&limit=50&sort=date&start=' + str(i*50))
 		find_info(source)
