@@ -38,15 +38,6 @@ def find_info(source):
 			df.sort_values(by=['Date'], inplace=True, ascending=False)
 			df.to_csv("csv_files/pandas_data.csv")
 
-	
-def find_no_pages(source):
-	for table in source.find_all('td', {'id' : 'resultsCol'}):
-		pages = table.find('div', class_ = 'resultsTop').find('div', attrs={'id':'searchCount'}).get_text()
-		number = pages[-3:]
-		no_pages = int(number) / 50
-		page_no = math.ceil(no_pages)
-	return(page_no)
-
 
 if __name__ == '__main__':
 	
