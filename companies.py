@@ -93,6 +93,6 @@ if __name__ == '__main__':
 	driver = webdriver.Firefox()
 
 	hubspot(driver)
-	facebook(driver)
+	#facebook(driver)
 	
 	driver.close()
