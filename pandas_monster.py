@@ -49,7 +49,7 @@ def find_data(soup):
 	df = df[['Date', 'Company', 'Role', 'URL']]
 	df = df.dropna()
 	df = df.sort_values(by=['Date'], ascending=False)
-	df.to_csv('csv_files/pandas_data.csv')
+	df.to_csv('csv_files/pandas_data.csv', mode='a', header=False)
 
 		
 if __name__ == '__main__':
