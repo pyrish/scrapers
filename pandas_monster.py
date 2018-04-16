@@ -33,7 +33,7 @@ def getPageSource(current_page):
 # 	return(results)
 
 
-
+# Function to scrape all jobs per page
 def find_data(soup, l):
 	l = []
 	for div in soup.find_all('div', class_ = 'js_result_container'):
