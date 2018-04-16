@@ -2,6 +2,7 @@
 
 import csv
 from bs4 import BeautifulSoup
+import os
 import urllib.request
 import pandas as pd
 
@@ -32,7 +33,8 @@ def getPageSource(current_page):
 # 	return(results)
 
 
-def find_data(soup):
+
+def find_data(soup, l):
 	l = []
 	for div in soup.find_all('div', class_ = 'js_result_container'):
 		d = {}
@@ -45,20 +47,18 @@ def find_data(soup):
 			l.append(d)
 		except:
 			pass
-	df = pd.DataFrame(l)
-	df = df[['Date', 'Company', 'Role', 'URL']]
-	df = df.dropna()
-	df = df.sort_values(by=['Date'], ascending=False)
-	df.to_csv('csv_files/pandas_data.csv', mode='a', header=False)
+	return l
 
 		
 if __name__ == '__main__':
+	
+	display = Display(visible=0, size=(1920, 1080)).start()
   
 	f = open("csv_files/pandas_data.csv", "w")
 	f.truncate()
 	f.close()
 	
-	display = Display(visible=0, size=(1920, 1080)).start()
+	os.system('clear')
 	
 	print('\n')
 	print('########################################################')
@@ -69,10 +69,18 @@ if __name__ == '__main__':
 	max_pages = int(input('Enter number of pages to search: '))
 	print('\n')
 	
+	l = []
 	for i in range(max_pages):
 		page = 'https://www.monster.ie/jobs/search/?q='+query+'&where=Dublin__2C-Dublin&sort=dt.rv.di&page=' + str(i+1)
 		soup = getPageSource(page)
 		print("Scraping Page number: " + str(i+1))
-		find_data(soup)
+		l.extend(find_data(soup, l))
+	
+	df = pd.DataFrame(l)
+	df = df[['Date', 'Company', 'Role', 'URL']]
+	df = df.dropna()
+	df = df.sort_values(by=['Date'], ascending=False)
+	df.to_csv("csv_files/pandas_data.csv", mode='a', header=True, index=False)
+	
 	print("\n")
 	print("Done!!, check the CSV File!")
