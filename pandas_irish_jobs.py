@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-import csv
 import pandas as pd
+import os
 from datetime import datetime
 from bs4 import BeautifulSoup
 import urllib.request
@@ -38,11 +38,25 @@ def find_data(source):
 	df = df[['Date', 'Company', 'Role', 'URL']]
 	df = df.dropna()
 	df = df.sort_values(by=['Date'], ascending=False)
-	df.to_csv("csv_files/pandas_data.csv")
+	df.to_csv("csv_files/pandas_data.csv", header=True, index=False)
 		
 if __name__ == '__main__':
+	
+	f = open("csv_files/pandas_data.csv", "w")
+	f.truncate()
+	f.close()
+	
+	os.system('clear')
+	
+	print('\n')
+	print('##########################################################')
+	print('IrishJobs.ie Job Scraper - Copyright Mariano Vazquez, 2018')
+	print('##########################################################')
+	print('\n')
 	  
 	query = input('Enter role to search: ')
 	source = getPageSource('https://www.irishjobs.ie/ShowResults.aspx?Keywords='+query+'&Location=102&Category=3&Recruiter=All&SortBy=MostRecent&PerPage=100')
 	
 	find_data(source)
+	
+	print("\nDone!!, check the CSV File!")

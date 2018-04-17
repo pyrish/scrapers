@@ -15,7 +15,6 @@ from selenium.webdriver.common.keys import Keys
 
 
 def getPageSource(current_page):
-	
 	driver = webdriver.Firefox()
 	driver.get(current_page)
 	url_code = driver.page_source
@@ -82,5 +81,4 @@ if __name__ == '__main__':
 	df = df.sort_values(by=['Date'], ascending=False)
 	df.to_csv("csv_files/pandas_data.csv", mode='a', header=True, index=False)
 	
-	print("\n")
-	print("Done!!, check the CSV File!")
+	print("\nDone!!, check the CSV File!")

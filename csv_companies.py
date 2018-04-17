@@ -83,7 +83,7 @@ def facebook(driver):
 
 if __name__ == '__main__':
 	
-	f = open("data_companies.csv", "w")
+	f = open("csv_files/data_companies.csv", "w")
 	f.truncate()
 	f.close()
 
@@ -93,6 +93,6 @@ if __name__ == '__main__':
 	driver = webdriver.Firefox()
 
 	hubspot(driver)
-	#facebook(driver)
+	facebook(driver)
 	
 	driver.close()

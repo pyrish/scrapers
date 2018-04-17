@@ -2,6 +2,7 @@
 
 import csv
 import pandas as pd
+import os
 import math
 from bs4 import BeautifulSoup
 import urllib.request
@@ -24,11 +25,11 @@ def getPageSource(current_page):
 			
 	
 def get_number_pages(soup):
-  num_results = soup.find("strong").contents
-  makeitastring = ''.join(map(str, num_results))
-  temp = (int(makeitastring)) / 10
-  page_no = math.ceil(temp)
-  return(page_no)
+	num_results = soup.find("strong").contents
+	makeitastring = ''.join(map(str, num_results))
+	temp = (int(makeitastring)) / 10
+	page_no = math.ceil(temp)
+	return(page_no)
 
 
 def find_data(soup):
@@ -43,31 +44,44 @@ def find_data(soup):
 		date = b.find('ul', class_= 'jobDetails').find('li', class_= 'jobLiveDate').get_text()
 		d["Date"] = date.split(':')[1].strip()
 		l.append(d)
-	df = pd.DataFrame(l)
-	df = df[['Date', 'Company', 'Role', 'URL']]
-	df=df.dropna()
-	#df = df.sort_values(by = ['Date'], ascending=False)
-	df.sort_values(by = ['Date'], inplace=True, ascending=False)
-	df.to_csv("csv_files/pandas_data.csv")
+	return l
 
 if __name__ == '__main__':
-  
+	
 	display = Display(visible=0, size=(1920, 1080)).start()
 	
-	query = input('Enter role to search: ')
+	f = open("csv_files/pandas_data.csv", "w")
+	f.truncate()
+	f.close()
 	
-	#page = 'https://www.monster.ie/jobs/search/?q='+query+'&where=Dublin__2C-Dublin&sort=dt.rv.di&page=1'
-	#soup = BeautifulSoup(open('soup.html', encoding ='utf-8'), "html5lib")
+	os.system('clear')
+	
+	print('\n')
+	print('#############################################################')
+	print('Computerjobs.ie Job Scraper - Copyright Mariano Vazquez, 2018')
+	print('#############################################################')
+	print('\n')
+	
+	query = input('Enter role to search: ')
+	print('\nLooking for Jobs, please wait...')
+	print('\n')
 	pholder_page = 'https://www.computerjobs.ie/jobboard/cands/JobResults.asp?c=1&strKeywords='+query+'&lstPostedDate=3&lstRegion=Central+Dublin&lstRegion=South+Dublin&lstRegion=North+Dublin&lstRegion=West+Dublin&pg=1'
 	code = getPageSource(pholder_page)
 	no_pages = get_number_pages(code)
-	#find_data(soup)
+	
 	new_page = 'https://www.computerjobs.ie/jobboard/cands/JobResults.asp?c=1&strKeywords='+query+'&lstPostedDate=3&lstRegion=Central+Dublin&lstRegion=South+Dublin&lstRegion=North+Dublin&lstRegion=West+Dublin&pg='
 	
-	for i in range(no_pages + 1):
+	l = []
+	for i in range(no_pages):
 		page = new_page + str(i+1)
 		soup = getPageSource(page)
 		print("Scraping Page number: " + str(i+1))
-		find_data(soup)
-	print("\n")
-	print("Done!!, check the CSV File!")
+		l.extend(find_data(soup))
+	
+	df = pd.DataFrame(l)
+	df = df[['Date', 'Company', 'Role', 'URL']]
+	df=df.dropna()
+	df.sort_values(by = ['Date'], inplace=True, ascending=False)
+	df.to_csv("csv_files/pandas_data.csv", mode='a', header=True, index=False)
+	
+	print("\nDone!!, check the CSV File!")
