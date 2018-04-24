@@ -64,7 +64,6 @@ if __name__ == '__main__':
 	
 	query = input('Enter role to search: ')
 	print('\nLooking for Jobs, please wait...')
-	print('\n')
 	pholder_page = 'https://www.computerjobs.ie/jobboard/cands/JobResults.asp?c=1&strKeywords='+query+'&lstPostedDate=3&lstRegion=Central+Dublin&lstRegion=South+Dublin&lstRegion=North+Dublin&lstRegion=West+Dublin&pg=1'
 	code = getPageSource(pholder_page)
 	no_pages = get_number_pages(code)

@@ -81,6 +81,6 @@ if __name__ == '__main__':
 	df = df[['Date', 'Company', 'Role', 'URL']]
 	df=df.dropna()
 	df.sort_values(by=['Date'], inplace=True, ascending=False)
-	df.to_csv("csv_files/pandas_data.csv")
+	df.to_csv("csv_files/pandas_data.csv", mode='a', header=True, index=False)
 
 	print("\nDone!!, check the CSV File!")

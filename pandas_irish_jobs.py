@@ -55,6 +55,7 @@ if __name__ == '__main__':
 	print('\n')
 	  
 	query = input('Enter role to search: ')
+	print('\nScraping your results, please wait...')
 	source = getPageSource('https://www.irishjobs.ie/ShowResults.aspx?Keywords='+query+'&Location=102&Category=3&Recruiter=All&SortBy=MostRecent&PerPage=100')
 	
 	find_data(source)

@@ -66,6 +66,7 @@ if __name__ == '__main__':
 	print('\n')
 	query = input('Enter role to search: ')
 	max_pages = int(input('Enter number of pages to search: '))
+	print('\nScraping list of jobs, please wait...')
 	print('\n')
 	
 	l = []
