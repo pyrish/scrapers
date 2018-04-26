@@ -1,11 +1,4 @@
 # -*- coding: utf-8 -*-
-# from selenium import webdriver
-# from selenium.webdriver.support.ui import WebDriverWait
-# from selenium.webdriver.support import expected_conditions as EC
-# from selenium.webdriver.common.by import By
-# from selenium.common.exceptions import TimeoutException
-
-#from pyvirtualdisplay import Display
 
 from bs4 import BeautifulSoup
 import urllib.request
@@ -16,18 +9,9 @@ class IndeedScraper(object):
     def __init__(self, role):
         self.role = role
         self.url = 'https://ie.indeed.com/jobs?q={}&l=Dublin&sort=date&limit=20&fromage=3&radius=25&start=0'.format(role)
-        #self.driver = webdriver.Firefox()
-        #self.delay = 3
 
-#     def load_indeed_url(self):
-#         self.driver.get(self.url)
-#         try:
-#             wait = WebDriverWait(self.driver, self.delay)
-#             wait.until(EC.presence_of_element_located((By.CLASS_NAME, "input_text")))
-#             print("Page is ready")
-#         except TimeoutException:
-#             print("Loading took too much time")
-            
+        
+    # Find number of pages given the term provided       
     def find_pages(self):
         pages = []
         html_page = urllib.request.urlopen(self.url)
@@ -41,6 +25,7 @@ class IndeedScraper(object):
         return pages
 
       
+    # Scrape each page to pull the Company, Role, URL and Date  
     def find_info(self, source):
       l = []
       for info in source.find_all("td",  {"id": "resultsCol"}):
@@ -59,6 +44,30 @@ class IndeedScraper(object):
       return l
     
     
+    # Iterate through the pages
+    def iterate_pages(self, pages, max_pages):
+      l_main = []
+      cont = 1
+      for i in pages[:max_pages]:
+        html_page = urllib.request.urlopen(i)
+        source = BeautifulSoup(html_page, "html5lib")
+        print("Scraping Page number: " + str(cont))
+        results = scraper.find_info(source)
+        cont +=1
+        l_main.extend(results)
+      return(l_main)
+    
+    
+    # Store the results in a pandas DataFrame
+    def store_results(self, l_main):
+      # Put all results into a DataFrame
+      df = pd.DataFrame(l_main)
+      df = df[['Date', 'Company', 'Role', 'URL']]
+      df=df.dropna()
+      df.sort_values(by=['Date'], inplace=True, ascending=False)
+      df.to_csv("csv_files/pandas_data.csv", mode='a', header=True, index=False)
+      
+    
 if __name__ == '__main__':
   
   f = open("csv_files/pandas_data.csv", "w")
@@ -72,8 +81,6 @@ if __name__ == '__main__':
   print('Indeed.ie CLASS!! Job Scraper - Copyright Mariano Vazquez, 2018')
   print('###############################################################')
   print('\n')
-
-  #display = Display(visible=0, size=(1920, 1080)).start()
   
   role = str(input("Enter role to search: "))
   
@@ -82,24 +89,8 @@ if __name__ == '__main__':
   print('# {} pages were found from the past 3 days'.format(len(pages)))
   max_pages = int(input('# Enter number of pages to scrape: '))
   print('\n')
-
   
-  l_main = []
-  cont = 1
-  # Iterate through the pages
-  for i in pages[:max_pages]:
-    html_page = urllib.request.urlopen(i)
-    source = BeautifulSoup(html_page, "html5lib")
-    print("Scraping Page number: " + str(cont))
-    results = scraper.find_info(source)
-    cont +=1
-    l_main.extend(results)
- 
-   # Put all results into a DataFrame
-  df = pd.DataFrame(l_main)
-  df = df[['Date', 'Company', 'Role', 'URL']]
-  df=df.dropna()
-  df.sort_values(by=['Date'], inplace=True, ascending=False)
-  df.to_csv("csv_files/pandas_data.csv", mode='a', header=True, index=False)
+  results_list = scraper.iterate_pages(pages, max_pages)
+  scraper.store_results(results_list)
 
   print("\nDone!!, check the CSV File!")
