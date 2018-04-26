@@ -43,8 +43,6 @@ class IndeedScraper(object):
       
     def find_info(self, source):
       l = []
-      html_page = urllib.request.urlopen(self.url)
-      source = BeautifulSoup(html_page, "html5lib")
       for info in source.find_all("td",  {"id": "resultsCol"}):
         for div in info.find_all('div', {"class": ["row", "result", "clickcard"]}):
           d = {}
@@ -84,6 +82,7 @@ if __name__ == '__main__':
   print('# {} pages were found from the past 3 days'.format(len(pages)))
   max_pages = int(input('# Enter number of pages to scrape: '))
   print('\n')
+
   
   l_main = []
   cont = 1
