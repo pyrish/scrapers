@@ -9,8 +9,8 @@ class IndeedScraper(object):
     def __init__(self, role):
         self.role = role
         self.url = 'https://ie.indeed.com/jobs?q={}&l=Dublin&sort=date&limit=20&fromage=3&radius=25&start=0'.format(role)
+ 
 
-        
     # Find number of pages given the term provided       
     def find_pages(self):
         pages = []
@@ -24,7 +24,6 @@ class IndeedScraper(object):
         pages.pop()
         return pages
 
-      
     # Scrape each page to pull the Company, Role, URL and Date  
     def find_info(self, source):
       l = []
@@ -43,7 +42,6 @@ class IndeedScraper(object):
             pass
       return l
     
-    
     # Iterate through the pages
     def iterate_pages(self, pages, max_pages):
       l_main = []
@@ -57,10 +55,8 @@ class IndeedScraper(object):
         l_main.extend(results)
       return(l_main)
     
-    
     # Store the results in a pandas DataFrame
     def store_results(self, l_main):
-      # Put all results into a DataFrame
       df = pd.DataFrame(l_main)
       df = df[['Date', 'Company', 'Role', 'URL']]
       df=df.dropna()
@@ -81,7 +77,7 @@ if __name__ == '__main__':
   print('Indeed.ie CLASS!! Job Scraper - Copyright Mariano Vazquez, 2018')
   print('###############################################################')
   print('\n')
-  
+
   role = str(input("Enter role to search: "))
   
   scraper = IndeedScraper(role) 
