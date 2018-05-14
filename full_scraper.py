@@ -13,6 +13,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 
+
 # Indeed.ie Scraper
 class IndeedScraper(object):
     def __init__(self, role):
@@ -23,7 +24,7 @@ class IndeedScraper(object):
     def find_pages(self):
         pages = []
         html_page = urllib.request.urlopen(self.url)
-        source = BeautifulSoup(html_page, "html5lib")
+        source = BeautifulSoup(html_page, "html.parser")
         base_url = 'https://ie.indeed.com'
         for a in source.find_all('div', class_= 'pagination'):
           for link in a.find_all('a', href=True):
@@ -56,7 +57,7 @@ class IndeedScraper(object):
       cont = 1
       for i in pages[:max_pages]:
         html_page = urllib.request.urlopen(i)
-        source = BeautifulSoup(html_page, "html5lib")
+        source = BeautifulSoup(html_page, "html.parser")
         print("Scraping Page number: " + str(cont))
         results = indeed.find_info(source)
         cont +=1
@@ -102,7 +103,7 @@ class IrishJobs(object):
          'Connection': 'keep-alive'}
     req = urllib.request.Request(self.url, headers=hdr)
     page = urllib.request.urlopen(req)
-    soup = BeautifulSoup(page, "html5lib")
+    soup = BeautifulSoup(page, "html.parser")
     return(soup)
 			
 	# Finds the data according to the search term provided
@@ -143,7 +144,7 @@ class IrishJobs(object):
     f.truncate()
     f.close()
     
-    
+# Monster class
 class Monster(object):
   def __init__(self, role):
     self.role = role
@@ -154,16 +155,15 @@ class Monster(object):
     self.driver.get(self.url)
     url_code = self.driver.page_source
     self.driver.close()
-    soup = BeautifulSoup(url_code, "html5lib")
+    soup = BeautifulSoup(url_code, "html.parser")
     return(soup)
 
-  # def get_number_pages(soup):
-  # 	links = []
-  # 	for a in soup.find_all('a', class_= 'page-link'):
-  # 		links.append((a['href'])[-1])
-  # 	links = links[:-2]
-  # 	results = [int(i) for i in links]
-  # 	return(results)
+  # Function that returns the number of pages available to scrape
+  def get_number_pages(self, soup):
+    links = []
+    for li in soup.find_all('a', class_= 'page-link'):
+      links.append(li.get_text())
+    return(links[-2])
 
 
   # Function to scrape all jobs per page
@@ -191,7 +191,7 @@ class Monster(object):
     for i in range(max_pages):
       page = self.url + str(i+1)
       html_page = urllib.request.urlopen(page)
-      soup = BeautifulSoup(html_page, "html5lib")
+      soup = BeautifulSoup(html_page, "html.parser")
       print("Scraping Page number: " + str(i+1))
       l_main.extend(monster.find_data(soup))
     return(l_main)
@@ -233,7 +233,7 @@ class Computer(object):
        'Connection': 'keep-alive'}
     req = urllib.request.Request(url, headers=hdr)
     html_page = urllib.request.urlopen(req)
-    soup = BeautifulSoup(html_page, "html5lib")
+    soup = BeautifulSoup(html_page, "html.parser")
     return(soup)
 
   def get_number_pages(self):
@@ -346,12 +346,15 @@ if __name__ == '__main__':
     elif choice == '3':
       
       role = input('\nEnter role to search: ')
-      print('\n>>> Monster Scraper >> Searching jobs, please wait..')
-      
+      print('\nGrabbing all the pages, Hang in there...')
       monster = Monster(role)
+      
       monster.clear_results()
 
       soup = monster.getPageSource()
+      pages = monster.get_number_pages(soup)
+      print('\n>>> Monster Scraper >> {} pages found'.format(pages))
+
       monster.find_data(soup)
       results = monster.iterate_pages()
 
