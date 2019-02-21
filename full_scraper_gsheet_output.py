@@ -77,13 +77,6 @@ class IndeedScraper(object):
       df=df.dropna()
       df.sort_values(by=['Date'], inplace=True, ascending=False)
       s.df_to_sheet(df, sheet='Indeed', start=(1,1), replace=True, index=False)
-      #df.to_csv("csv_files/pandas_data.csv", mode='a', header=True, index=False)
-      
-    # # Clears the CSV file
-    # def clear_results(self):
-    #   f = open("csv_files/pandas_data.csv", "w")
-    #   f.truncate()
-    #   f.close()
 
       
 # Irish Jobs Scraper      
@@ -139,13 +132,7 @@ class IrishJobs(object):
     df=df.dropna()
     df.sort_values(by=['Date'], inplace=True, ascending=False)
     s.df_to_sheet(df, sheet='Irish_Jobs', start=(1,1), replace=True, index=False)
-    #df.to_csv("csv_files/pandas_data.csv", mode='a', header=True, index=False)
 
-  # # Clears the CSV file
-  # def clear_results(self):
-  #   f = open("csv_files/pandas_data.csv", "w")
-  #   f.truncate()
-  #   f.close()
     
 # Monster class
 class Monster(object):
@@ -161,12 +148,6 @@ class Monster(object):
     soup = BeautifulSoup(url_code, "html.parser")
     return(soup)
 
-#  # Function that returns the number of pages available to scrape
-#  def get_number_pages(self, soup):
-#    links = []
-#    for li in soup.find_all('a', class_= 'page-link'):
-#      links.append(li.get_text())
-#    return(links[-2])
 
 # Function to scrape all jobs per page
   def find_data(self, soup):
@@ -183,20 +164,7 @@ class Monster(object):
         except:
             pass
     return l
-#
-#  # Iterates through the pages
-#  def iterate_pages(self):
-#    max_pages = int(input('\nEnter number of pages to search: '))
-#    #print('\n>>> Scraping list of jobs, please wait...')
-#    print('\n')
-#    l_main = []
-#    for i in range(max_pages):
-#      page = self.url + str(i+1)
-#      html_page = urllib.request.urlopen(page)
-#      soup = BeautifulSoup(html_page, "html.parser")
-#      print("Scraping Page number: " + str(i+1))
-#      l_main.extend(monster.find_data(soup))
-#    return(l_main)
+
    
   # Clean df to work with
   def results_to_df(self, l):
@@ -213,13 +181,7 @@ class Monster(object):
     df=df.dropna()
     df.sort_values(by=['Date'], inplace=True, ascending=False)
     s.df_to_sheet(df, sheet='Monster', start=(1,1), replace=True, index=False)
-    #df.to_csv("csv_files/pandas_data.csv", mode='a', header=True, index=False)
 
-  # # Clears the CSV file
-  # def clear_results(self):
-  #   f = open("csv_files/pandas_data.csv", "w")
-  #   f.truncate()
-  #   f.close()
 
 # Computer Jobs Scraper class
 class Computer(object):
@@ -285,16 +247,9 @@ class Computer(object):
     df=df.dropna()
     df.sort_values(by=['Date'], inplace=True, ascending=False)
     s.df_to_sheet(df, sheet='Computer_Jobs', start=(1,1), replace=True, index=False)
-    #df.to_csv("csv_files/pandas_data.csv", mode='a', header=True, index=False)
     return df
   
 
-  # # Clears the CSV file
-  # def clear_results(self):
-  #   f = open("csv_files/pandas_data.csv", "w")
-  #   f.truncate()
-  #   f.close()
-    
     
 if __name__ == '__main__':
   
@@ -323,7 +278,6 @@ if __name__ == '__main__':
       role = str(input("\nEnter role to search: "))
 
       indeed = IndeedScraper(role)
-      #indeed.clear_results()
       
       pages = indeed.find_pages()
       print('# Indeed Scraper >> {} pages found'.format(len(pages)))
@@ -342,7 +296,6 @@ if __name__ == '__main__':
       print('\n>>> Irish Jobs Scraper >> Searching jobs, please wait..')
 
       irish_jobs = IrishJobs(role)
-      #irish_jobs.clear_results()
       soup = irish_jobs.getPageSource()
 
       results_list = irish_jobs.find_data(soup)
@@ -357,11 +310,7 @@ if __name__ == '__main__':
       print('\nGrabbing all the jobs, Hang in there...')
       
       monster = Monster(role)
-      #monster.clear_results()
       soup = monster.getPageSource()
-#      pages = monster.get_number_pages(soup)
-#      print('\n>>> Monster Scraper >> {} pages found'.format(pages))
-
       results = monster.find_data(soup)
 
       monster.store_results(results, s)
@@ -376,7 +325,6 @@ if __name__ == '__main__':
       print('')
       
       computer = Computer(role)
-      #computer.clear_results()
 
       no_pages = computer.get_number_pages()
       results = computer.iterate_pages(no_pages)
@@ -386,20 +334,16 @@ if __name__ == '__main__':
     elif choice == '5':
       
       s = Spread('scraper', 'pandas')
-      # Create a Pandas Excel writer using XlsxWriter as the engine.
-      #writer = pd.ExcelWriter('pandas_multiple.xlsx')
-      
+
       role = input('\nEnter role to search: ')
       os.system('clear')
       print('\n>>> Scraping ALL Sites for jobs, please wait..')
       print('')
       
       # Indeed Scraper
-
       s = Spread('scraper', 'pandas')
 
       indeed = IndeedScraper(role)
-      #indeed.clear_results()
       
       pages = indeed.find_pages()
       print('# Indeed Scraper >> {} pages found'.format(len(pages)))
@@ -407,10 +351,9 @@ if __name__ == '__main__':
       print('\n')
 
       results_list = indeed.iterate_pages(pages, max_pages)
-      #indeed.store_results(results_list)
       indeed_xls = indeed.results_to_df(results_list)
       indeed.store_results(indeed_xls, s)
-      #indeed_xls.to_excel(writer, sheet_name='Indeed', index=False)
+
       os.system('clear')
       
       # Irish Jobs Scraper
@@ -420,10 +363,9 @@ if __name__ == '__main__':
       
       soup = irish_jobs.getPageSource()
       results_list = irish_jobs.find_data(soup)
-      #irish_jobs.store_results(results_list)
       irish_xls = irish_jobs.results_to_df(results_list)
       irish_jobs.store_results(irish_xls, s)
-      #irish_xls.to_excel(writer, sheet_name='Irish_Jobs', index=False)
+
       os.system('clear')
       
       # Monster Scraper
@@ -436,7 +378,7 @@ if __name__ == '__main__':
       results = monster.find_data(soup)
       monster_xls = monster.results_to_df(results)
       monster.store_results(monster_xls, s)
-      #monster_xls.to_excel(writer, sheet_name='Monster', index=False)
+
       os.system('clear')
       
       # Computer Jobs Scraper
@@ -447,15 +389,11 @@ if __name__ == '__main__':
       
       no_pages = computer.get_number_pages()
       results = computer.iterate_pages(no_pages)
-      #computer.store_results(results)
+
       computer_xls = computer.results_to_df(results)
       computer.store_results(computer_xls, s)
-      #computer_xls.to_excel(writer, sheet_name='Computer_Jobs', index=False)
-    
-      #writer.save()
       
       os.system('clear')
-        
     
     elif choice == '6':
       running = False
