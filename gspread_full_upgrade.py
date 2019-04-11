@@ -61,11 +61,11 @@ class IndeedScraper(object):
     def find_info(self, soup):
       l = []
       for info in soup.find_all("td",  {"id": "resultsCol"}):
-        for div in info.find_all('div', {"class": ["row", "result", "clickcard"]}):
+        for div in info.find_all('div', {"data-tn-component": "organicJob"}):
           d = {}
           try:
-            link = div.find('h2', class_= 'jobtitle').find('a')
-            role = link.get_text()
+            link = div.find('div', class_= 'title').find('a')
+            role = link.get_text().strip()
             d["Company"] = div.find('span', class_= 'company').get_text().strip()
             d["Role"] = role
             d["URL"] = 'http://www.indeed.com' + link['href']
