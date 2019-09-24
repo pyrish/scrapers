@@ -142,7 +142,7 @@ class Monster(object):
 
     #Options for Local box
     chrome_options = webdriver.ChromeOptions()
-    chrome_driver_path = '/Users/mariano/Desktop/python_scripts/chromedriver'
+    chrome_driver_path = '/Users/mariano/Desktop/scrapers/chromedriver'
     self.driver = webdriver.Chrome(chrome_driver_path, chrome_options=chrome_options)
 
     #self.driver = webdriver.Chrome(executable_path='/usr/lib/chromium-browser/chromedriver')
